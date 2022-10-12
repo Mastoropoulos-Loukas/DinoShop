@@ -3,22 +3,35 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Dinosaur Categories</h1>
 
-<table class="table-active" style="width:100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Date Created</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var obj in Model)
-        {
+<div clclass="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Dinosaur Categories</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create New Category
+            </a>
+        </div>
+    </div>
+    <br />
+
+    <table class="table table-secondary table-bordered table-striped" style="width:100%">
+        <thead>
             <tr>
-                <td width="50%">@obj.Name</td>
-                <td width="30%">@obj.CreatedDateTime</td>
+                <th>Name</th>
+                <th>Created at Date</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td width="30%">@obj.CreatedDateTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
